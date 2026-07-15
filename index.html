@@ -138,6 +138,9 @@ section{padding:clamp(56px,7vw,92px) 0;border-bottom:1px solid var(--line)}
 .prow-meta{display:flex;flex-direction:column;gap:6px}
 .role{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
 .role.pi{color:var(--accent);font-weight:600}
+.pstatus{display:inline-block;width:fit-content;font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:2px 7px;border-radius:10px}
+.pstatus.awarded{background:rgba(30,120,70,.13);color:#1c7a46;border:1px solid rgba(30,120,70,.35)}
+.pstatus.eval{background:rgba(180,120,20,.12);color:#9a6b12;border:1px solid rgba(180,120,20,.32)}
 .prow-meta .yrs{font-family:var(--mono);font-size:11.5px;color:var(--faint)}
 .prow-body h3{font-size:18px;font-weight:600;margin-bottom:5px}
 .pentity{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.01em;margin-bottom:10px;line-height:1.5}
@@ -281,17 +284,16 @@ a.mail:hover{border-color:var(--accent)}
 const PROFILE = {
   heroMeta: "Postdoctoral researcher (ASECTI PAIDI, 2025–2028) · Cádiz, Spain",
   bio: [
-    "My work focuses on the conservation of species and ecosystems. My research examines the relationships between organisms — particularly apex predators used as ecological indicators — and their environment, through spatial distribution modelling, trophic interaction studies and the assessment of anthropogenic pressures. Over the last 25 years I have monitored populations of terrestrial and marine birds, combining extensive fieldwork with strong statistical skills for analysing ecological processes related to species distribution and animal movement.",
-    "Since April 2025 I hold a three-year competitive ASECTI PAIDI postdoctoral contract, funded by the Junta de Andalucía and based at the University of Cádiz. I currently co-supervise the PhD theses of Yana Korneeva (movement ecology of coastal birds under anthropogenic pressures) and Alba Márquez (application of AI techniques to remote-sensing ecological data for biodiversity monitoring). I have co-supervised eight master's theses (three ongoing) and served on the committees of one PhD thesis, six master's theses and three undergraduate theses at the University of Cádiz.",
-    "I am author or co-author of more than 35 scientific publications (mainly as first, second or last author), including 25 SCI-indexed articles and three book chapters, with 10 manuscripts in preparation and four under review in Q1 journals. I regularly act as a reviewer for international journals such as Biological Reviews, Animal Movement, PLOS ONE, Ardeola and Marine Biology, and have presented my work at 12 international conferences. I have participated in 13 competitive national and European projects, acting as Principal Investigator on several (including one project worth €250,000). My publications — especially those assessing the effectiveness of Marine Protected Areas — have had a demonstrable impact and contributed to new Natura 2000 designations.",
-    "Before finishing my PhD I completed three international research stays: four months at Hawk Mountain Sanctuary (USA) studying raptor ecology; two months in Djibouti and Ethiopia studying scavenger ecology with the University of Utah and HawkWatch International; and two months at the University of Trás-os-Montes e Alto Douro (Portugal) studying threatened seabirds in protected marine areas. After my PhD, I held a two-year Margarita Salas postdoctoral fellowship (Coimbra, Cádiz, Málaga). I have received five academic awards and have taught Biology and Oenology at the Universities of Cádiz and Málaga since 2023 (150+ hours/year); since 2025 I coordinate the Applied Module of the Master's in Natural Environment Management and Conservation at UCA."
+    "My work focuses on the conservation of species and ecosystems. My research examines the relationships between organisms — particularly apex predators used as ecological indicators — and their environment, through spatial distribution modelling, trophic interaction studies and the assessment of anthropogenic pressures. I have studied bird populations, combining extensive fieldwork with strong statistical skills for analysing ecological processes related to species distribution and animal movement.",
+    "Since April 2025 I hold a three-year competitive ASECTI PAIDI postdoctoral contract, funded by the Junta de Andalucía and based at the University of Cádiz. I currently co-supervise the PhD theses of Yana Korneeva (movement ecology of coastal birds under anthropogenic pressures) and Alba Márquez (application of AI techniques to remote-sensing ecological data for biodiversity monitoring). I have co-supervised eight master's theses (three ongoing) and served on the committees of dozens of undergraduate, master's and doctoral theses at the University of Cádiz.",
+    "I am author or co-author of {pubs} scientific publications (mainly as first, second or last author), including {sci} SCI-indexed articles and {chapters} book chapters, with {prep} manuscripts in preparation and {review} under review in Q1 journals. I regularly act as a reviewer for international Q1 journals. I have presented my work at more than a dozen international conferences. I have participated in {projects} competitive national and European projects, acting as Principal Investigator on several.",
+    "I have completed three international research stays: four months at Hawk Mountain Sanctuary (USA) studying raptor ecology; two months in Djibouti and Ethiopia studying scavenger ecology with the University of Utah and HawkWatch International; and two months at the University of Trás-os-Montes e Alto Douro (Portugal) studying threatened seabirds in protected marine areas. After my PhD, I held a two-year Margarita Salas postdoctoral fellowship (Coimbra, Cádiz, Málaga). I have received five academic awards and have taught at the Universities of Cádiz and Málaga since 2023 (150+ hours/year); since 2025 I coordinate the Applied Module of the Master's in Natural Environment Management and Conservation at UCA. I am currently accredited by ANECA as Profesor Contratado Doctor and hold two six-year research productivity periods (sexenios)."
   ],
   glance: [
     "Postdoctoral researcher · ASECTI PAIDI (2025–2028) · University of Cádiz",
-    "45 publications · 26 SCI-indexed (JCR)",
-    "22 projects · 12 international conferences",
-    "5 academic awards",
-    "25 years monitoring terrestrial &amp; marine birds"
+    "{pubs} publications · {sci} SCI-indexed (JCR)",
+    "{projects} research projects",
+    "5 academic awards"
   ],
   areas: ["Seabird & coastal-bird ecology","Species distribution modelling","Animal movement","Marine Protected Areas","Apex predators as indicators","Spatial statistics in R"],
   mails: ["andres.delacruz@uca.es","andresdelacruzmunoz@gmail.com"],
@@ -319,6 +321,12 @@ const SPECIES = [
 const PROJECTS = [
   {role:"grant", years:"2025–2028", title:"ASECTI PAIDI postdoctoral contract", entity:"Junta de Andalucía · Universidad de Cádiz", pi:"Postdoctoral researcher", funding:"",
    desc:"Three-year competitive postdoctoral contract (ASECTI PAIDI programme), funded by the Junta de Andalucía and based at the University of Cádiz."},
+  {role:"ip", years:"2026–2029", title:"FlyBB — Flying Beyond Boundaries", entity:"State Plan for R&D — Knowledge Generation Projects · Spanish Research Agency (AEI)", pi:"Principal investigator (IP2, with G. Muñoz Arroyo)", funding:"€105,900",
+   desc:"AI, advanced sensing and citizen science for an intercontinental migration monitoring network at the Strait of Gibraltar. Multisensor design and AI-based analytical workflows to monitor bird and bat migration between Europe and Africa, building on the LifeWatch ERIC–INDALO research infrastructure."},
+  {role:"ip", status:"eval", years:"2026–2029", title:"HABIMOV", entity:"Junta de Andalucía · Consejería de Universidad, Investigación e Innovación", pi:"Principal investigator (IP1, with G. Muñoz Arroyo)", funding:"€80,000",
+   desc:"Habitat selection, movement ecology and consequences of land-use change in open-habitat birds. Kentish plover (Anarhynchus alexandrinus) and collared pratincole (Glareola pratincola) studied across a gradient from natural to strongly human-modified habitats in the province of Cádiz."},
+  {role:"ip", status:"eval", years:"2026–2029", title:"EDGE-MOTUS", entity:"Organismo Autónomo Parques Nacionales · MITECO · Red de Parques Nacionales", pi:"Principal investigator (IP1, with G. Muñoz Arroyo)", funding:"€100,000",
+   desc:"Integrated wildlife-tracking network in southern Europe: movement, connectivity and global change in Andalusian national parks. Automated telemetry (Motus) and bioacoustics deployed in Doñana, Sierra de las Nieves and Sierra Nevada."},
   {role:"grant", years:"2022–2024", title:"Margarita Salas postdoctoral fellowship", entity:"Margarita Salas programme (Univ. Coimbra · Univ. Cádiz · Univ. Málaga)", pi:"Postdoctoral researcher", funding:"",
    desc:"Competitive individual postdoctoral fellowship awarded in open concurrence after the PhD. One year in the ECOTOP / MARE group at the University of Coimbra (Portugal), one year at the University of Cádiz, and one trimester of research collaboration at the University of Málaga. Research on environmental drivers and human pressures (bycatch, fishery discards, marine litter) shaping the distribution of marine apex predators, and on the adequacy of marine protected areas."},
   {role:"ip", years:"2023–2024", title:"SEANIMALMOVE", entity:"University of Cádiz · Complementary Plan for Marine Sciences (RTRP)", pi:"", funding:"€250,000",
@@ -341,7 +349,7 @@ const PROJECTS = [
    desc:"Member of the Spanish research network on ecoacoustics, applied to the acoustic detection and monitoring of wildlife."},
   {role:"eq", years:"2024", title:"International Action Plan for the Balearic Shearwater", entity:"BirdLife International", pi:"Expert Panel", funding:"",
    desc:"Review of the International Action Plan for the Balearic shearwater (2024), assessing progress, threats and future actions as a member of the expert panel."},
-  {role:"eq", years:"2021–pres.", title:"INDALO · GIBMOV Station", entity:"University of Cádiz – LifeWatch ERIC", pi:"Postdoctoral researcher", funding:"",
+  {role:"eq", years:"2021–2025", title:"INDALO · GIBMOV Station", entity:"University of Cádiz – LifeWatch ERIC", pi:"Postdoctoral researcher", funding:"",
    desc:"Sensor network measuring the response of biodiversity to global change in Andalusia. Design and deployment of the animal-movement monitoring station (GIBMOV) in the Strait of Gibraltar, using radar and GIS."},
   {role:"eq", years:"2022", title:"MATH4FISH", entity:"Spanish Institute of Oceanography – CSIC", pi:"Postdoctoral researcher", funding:"",
    desc:"New mathematical-modelling tools for scientific fisheries advice (ICES framework): migration between stock-assessment models and management strategy evaluation (MSE)."},
@@ -369,13 +377,12 @@ const PROJECTS = [
 /*  Your name is highlighted automatically: write it "De la Cruz, A."     */
 /* ===================================================================== */
 const PUBLICATIONS = [
-  {year:2026, type:"prep", aut:"Castro, M., Korneeva, Y., Martín-Sanjuan, N., Muñoz Arroyo, G., Pérez-Hurtado, A. & De la Cruz, A.", tit:"Scale-dependent population trends in shorebirds at a key East Atlantic Flyway site", ven:"Manuscript in preparation", metric:"In prep."},
-  {year:2026, type:"prep", aut:"Márquez-Rodríguez, A., Pérez-Gimeno, N., Rollán, L., Muñoz Arroyo, G. & De la Cruz, A.", tit:"AUDIOTATE: Human-in-the-loop validation software for environmental acoustic monitoring", ven:"Proceedings of the International Congress on Multidisciplinary Engineering (ICME 2026)", metric:"In prep."},
+  {year:2026, type:"review", aut:"Márquez-Rodríguez, A., Pérez-Gimeno, N., Rollán, L., Muñoz Arroyo, G. & De la Cruz, A.", tit:"AUDIOTATE: Human-in-the-loop validation software for environmental acoustic monitoring", ven:"Proceedings of the International Congress on Multidisciplinary Engineering (ICME 2026)", metric:"Under review"},
   {year:2026, type:"prep", aut:"Márquez-Rodríguez, A., Mora, M. Á., Rollán, L., Muñoz, G. & De la Cruz, A.", tit:"From prediction to precision in BirdNET validation in avian identification in the Bay of Cádiz", ven:"Manuscript in preparation for submission", metric:"In prep."},
   {year:2026, type:"prep", aut:"Márquez-Rodríguez, A., Pérez Gimeno, N., Mohedano-Muñoz, M. Á., Marin-Jimenez, M. J., Santamaria García, E., Bastianelli, G., Álvarez, A., García-Algarra, J., Novalbos, M., Muñoz Arroyo, G., De la Cruz, A. & Mendoza, I.", tit:"Bridging the gap between Deep Learning and ecology in the acoustic monitoring of biodiversity", ven:"Book chapter in preparation", metric:"In prep."},
   {year:2026, type:"accepted", aut:"Oviedo, J. L., Campos, P., Caparrós, A., Arroyo, G. M. & De la Cruz, A.", tit:"Choice Experiments and Simulated Exchange Values: An Application to Biodiversity for Monetary Ecosystem Accounting", ven:"Manuscript under review", metric:"Accepted"},
-  {year:2026, type:"prep", aut:"De la Cruz, A. & Arroyo, G. M.", tit:"Increased post-breeding migratory passage of the Critically Endangered Balearic Shearwater at the Strait of Gibraltar", ven:"Conservation Letters. Manuscript in preparation", metric:"In prep."},
-  {year:2026, type:"prep", aut:"De la Cruz, A., Pereira, J. M., Paiva, V. H., Ramos, J. A., López, J., Guirado, M. Á. & Arroyo, G. M.", tit:"Migration and wintering spatial ecology of Audouin's Gulls from two recently established colonies at the Atlantic–Mediterranean transition", ven:"Diversity and Distributions. Manuscript in preparation", metric:"In prep."},
+  {year:2026, type:"review", aut:"De la Cruz, A. & Arroyo, G. M.", tit:"Increased post-breeding migratory passage of the Critically Endangered Balearic Shearwater at the Strait of Gibraltar", ven:"Biodiversity and Conservation. Manuscript under review", metric:"Under review"},
+  {year:2026, type:"review", aut:"De la Cruz, A., Pereira, J. M., Paiva, V. H., Ramos, J. A., López, J., Guirado, M. Á. & Arroyo, G. M.", tit:"Migration and wintering spatial ecology of Audouin's Gulls from two recently established colonies at the Atlantic–Mediterranean transition", ven:"Movement Ecology. Manuscript under review", metric:"Under review"},
   {year:2026, type:"review", aut:"Korneeva, Y., De la Cruz, A., Castro Casas, M., Paiva, V. H., Pereira, J. M., Martín, N., Arroyo, G. M., Norte, A. C., Montesinos, J., Rocha, A. D., Sarreira, B., Pessoa, J. & Ramos, J. A.", tit:"Intertidal proximity drives sex-specific space use and energy expenditure in breeding Atlantic Kentish Plovers", ven:"Journal of Animal Ecology. Manuscript under review (R1)", metric:"Under review"},
   {year:2026, type:"jcr", aut:"De la Cruz, A., Korneeva, Y., Martín, N., Forján, A., Couso, M., Montesinos, J. M., Pérez-Hurtado, A., Castro, M., Álvarez, A., Pereira, J. M., Paiva, V. H., Ramos, J. A., Márquez-Rodríguez, A., Reyes-González, J. M. & Arroyo, G. M.", tit:"Quality over quantity: assessing Natura 2000 coverage of Little Tern core areas", ven:"Ocean & Coastal Management, 279: 108271", metric:"IF 5.9 · Q1", doi:"https://doi.org/10.1016/j.ocecoaman.2026.108271"},
   {year:2026, type:"chapter", aut:"De la Cruz, A., Arroyo, G. M., Márquez-Rodríguez, A. & Pérez, N.", tit:"SEANIMALMOVE: Monitorización del movimiento de vertebrados marinos ante impactos antropogénicos en un escenario de cambio global", ven:"In C. Garrido Perez et al. (Eds.), ThinkInAzul Andalucía: Una mirada hacia el futuro. Fundación CEI-MAR, pp. 40–41", metric:"Chapter"},
@@ -439,8 +446,18 @@ if(IMG.gannet) $("#hero-bg").style.backgroundImage = `url(${IMG.gannet})`;
 if(IMG.perfil) $("#img-perfil").src = IMG.perfil;
 
 $("#hero-meta").textContent = PROFILE.heroMeta;
-$("#bio").innerHTML = PROFILE.bio.map(p=>`<p>${esc(p)}</p>`).join("");
-$("#glance").innerHTML = PROFILE.glance.map(g=>`<li>${g}</li>`).join("");
+/* Auto-computed stats from the data below (update the lists → numbers follow) */
+const STATS = {
+  pubs:     PUBLICATIONS.length,
+  sci:      PUBLICATIONS.filter(p=>p.type==="jcr").length,
+  chapters: PUBLICATIONS.filter(p=>p.type==="chapter").length,
+  prep:     PUBLICATIONS.filter(p=>p.type==="prep").length,
+  review:   PUBLICATIONS.filter(p=>p.type==="review").length,
+  projects: PROJECTS.filter(p=>p.role==="ip"||p.role==="inv"||p.role==="eq").length
+};
+const fillStats = s => s.replace(/\{(\w+)\}/g, (m,k)=> (k in STATS) ? STATS[k] : m);
+$("#bio").innerHTML = PROFILE.bio.map(p=>`<p>${esc(fillStats(p))}</p>`).join("");
+$("#glance").innerHTML = PROFILE.glance.map(g=>`<li>${fillStats(g)}</li>`).join("");
 $("#areas").innerHTML = PROFILE.areas.map(esc).join(" · ");
 $("#mails").innerHTML = PROFILE.mails.map(m=>`<a class="mail" href="mailto:${esc(m)}">${esc(m)}</a>`).join("");
 $("#clinks").innerHTML = PROFILE.links.filter(e=>e.url).map(e=>`<a class="btn" href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.txt)} ↗</a>`).join("");
@@ -521,6 +538,7 @@ function renderProj(){
       <div class="prow-meta">
         <span class="role ${(p.role==='ip'||p.role==='grant')?'pi':''}">${esc(ROLES[p.role])}</span>
         <span class="yrs">${esc(p.years)}</span>
+        ${p.status?`<span class="pstatus ${p.status==='awarded'?'awarded':'eval'}">${p.status==='awarded'?'Awarded':'Under evaluation'}</span>`:''}
       </div>
       <div class="prow-body">
         <h3>${esc(p.title)}</h3>
